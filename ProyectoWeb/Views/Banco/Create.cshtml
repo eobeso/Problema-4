@@ -1,0 +1,76 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model ProyectoWeb.ViewModels.BancoViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" />
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <a class="navbar-brand" href="#">Problema N° 4</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Banco")">Bancos </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Sucursales")">Sucursales </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "OrdenesPago")">Ordenes Pago </a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" placeholder="Buscar" type="text">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+        <div class="container body-content">
+            <br />
+            @using (Html.BeginForm("Create", "Banco"))
+            {
+                <table cellpadding="2" cellspacing="2">
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Bancos.Nombre)</td>
+                        <td>@Html.TextBoxFor(model => model.Bancos.Nombre)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Bancos.Direccion)</td>
+                        <td>@Html.TextBoxFor(model => model.Bancos.Direccion)</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><input type="submit" value="Save"  class="btn btn-primary"/></td>
+                    </tr>
+                </table>
+            }
+            <hr />
+            <footer>
+                <p>&copy; 2019 - Elias Obeso Valverde</p>
+            </footer>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
